@@ -1,4 +1,3 @@
-// Write your package code here!
 if (Meteor.isServer) {
 	BlockchainAPI = Npm.require('blockchain.info');
 	Blockchain = {

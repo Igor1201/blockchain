@@ -1,7 +1,7 @@
 Package.describe({
 	name: 'borges:blockchain',
 	version: '0.0.1',
-	summary: 'Wrapper of NPM\'s Blockchain API',
+	summary: 'A simple NPM wrapper of Blockchain\'s Official API Library for Meteor',
 	git: 'https://github.com/Igor1201/blockchain'
 });
 
@@ -11,7 +11,7 @@ Npm.depends({
 
 Package.onUse(function(api) {
 	api.versionsFrom('1.0.5');
-	api.use('meteorhacks:async');
+	api.use('meteorhacks:async@1.0.0');
 	api.addFiles('blockchain.js', 'server');
 	api.export('Blockchain');
 });

@@ -1,5 +1,5 @@
 # Meteor Blockchain API
-A simple NPM wrapper of [Blockchain's Official API Library](https://github.com/blockchain/api-v1-client-node) using Meteorhacks' Async library.
+A simple NPM wrapper of [Blockchain's Official API Library](https://github.com/blockchain/api-v1-client-node) for Meteor using Meteorhacks' Async library.
 
 ## Installation
 ```
