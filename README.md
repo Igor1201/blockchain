@@ -13,4 +13,4 @@ Check the official Blockchain's docs [here](https://github.com/blockchain/api-v1
 - Wrap Receiver Module (on Iron Router?)
 
 ## License
-GNU General Public License v2 (GPL-2)
+MIT License
