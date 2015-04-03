@@ -11,11 +11,10 @@ Npm.depends({
 });
 
 Package.onUse(function(api) {
-	api.versionsFrom('1.0.5');
 	api.use('coffeescript');
 	api.use('underscore');
-	api.use('meteorhacks:async@1.0.0');
-	api.use('iron:router@1.0.5');
+	api.use('meteorhacks:async');
+	api.use('iron:router');
 	api.addFiles('server.coffee', 'server');
 	api.export('Blockchain', 'server');
 });
