@@ -1,29 +1,5 @@
 @BlockchainAPI = Npm.require('blockchain.info')
 @url = Npm.require('url')
-@request = Npm.require('request')
-
-@appendToURL = (param, val) ->
-	if val == undefined then '' else ('&' + param + '=' + val).toString()
-
-@makeRequest = (url, callback) ->
-	console.log '0: ' + url
-	request url, (error, response, body) ->
-		console.log '1'
-		if !error
-			console.log '2 ' + body
-			try
-				data = JSON.parse body
-			catch err
-				console.log '3'
-				data = { error: err }
-			finally
-				console.log '4' + JSON.stringify data
-				if !data['error']
-					callback null, data
-				else
-					callback 'err: ' + data['error']
-		else
-			callback error
 
 Blockchain =
 	blockexplorer: Async.wrap BlockchainAPI.blockexplorer, ['getBlock','getTx','getBlockHeight','getAddress','getMultiAddress','getUnspentOutputs','getLatestBlock','getUnconfirmedTx','getBlocks','getInventoryData']
@@ -49,24 +25,7 @@ Blockchain =
 			@confirmations = confirmations
 			callback null, confirmations
 		, receive
-		###
-		receive.create = _.bind (address, parameters, callback) ->
-			if arguments.length == 2
-				callback = parameters
-				parameters = {}
-
-			console.log cbURL = @callbackURL + '?format=json'
-			_.each parameters, (value, key) ->
-				cbURL += appendToURL key, value
-
-			callUrl = 'https://blockchain.info/' + 'api/receive?method=create'
-			callUrl += appendToURL 'address', encodeURIComponent(address)
-			callUrl += appendToURL 'callback', encodeURIComponent(cbURL)
-			callUrl += appendToURL 'api_code', @apiCode
-
-			makeRequest callUrl, callback
-		, receive
-		###
+		
 		receive.listen = _.bind (server, clientCallback, callback) ->
 			thisReceive = @
 			
